@@ -35,7 +35,7 @@ func learnTypes() {
 	s2 := `A "raw" string literal
 can include line breaks.`
 
-	g := 'Σ'
+	g := 'Σ' // rune type, alias for int32, holds a unicode code point
 
 	fmt.Println("str: ", str, "\n s2:", s2, "\n g:", g)
 }
