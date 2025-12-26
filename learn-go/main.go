@@ -39,3 +39,7 @@ can include line breaks.`
 
 	fmt.Println("str: ", str, "\n s2:", s2, "\n g:", g)
 }
+
+func learnControlFlow() {
+
+}
