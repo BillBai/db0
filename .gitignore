@@ -35,3 +35,7 @@ go.work.sum
 *.swp
 *.swo
 *~
+
+# Claude Code local overrides
+.claude/settings.local.json
+.mcp.local.json

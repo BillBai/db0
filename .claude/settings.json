@@ -1,0 +1,6 @@
+{
+  "plugins": [
+    "gopls-lsp@claude-plugins-official",
+    "commit-commands@claude-plugins-official"
+  ]
+}

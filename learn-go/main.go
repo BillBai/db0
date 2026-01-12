@@ -19,6 +19,7 @@ func main() {
 	learnControlFlow()
 	learnFunctions()
 	learnStruct()
+	learnStructMethods()
 
 	fmt.Println("++++ examples +++++")
 	RunExamples()
@@ -116,8 +117,8 @@ func learnFunctions() {
 		fmt.Println("err is nil")
 	}
 
-	str, b := g()
-	fmt.Println("str: ", str, " b: ", b)
+	g_str, b := g()
+	fmt.Println("str: ", g_str, " b: ", b)
 
 	s, b := h()
 	fmt.Println("s ", s, " b ", b)
@@ -151,4 +152,25 @@ func learnStruct() {
 	bar3 := (*pc).bar
 	fmt.Println("bar2 bar3", bar2, bar3)
 
+}
+
+func foo1(c *C) {
+	c.foo = "hi"
+}
+
+func (c *C) foo2() {
+	c.foo = "hi from foo2"
+}
+
+func (c C) foo3() {
+	fmt.Println("bar ", c.bar)
+}
+
+func learnStructMethods() {
+	c := C{foo: "hi", bar: 42}
+	foo1(&c)
+	fmt.Println("c ", c)
+	c.foo2()
+	fmt.Println("c ", c)
+	c.foo3()
 }
