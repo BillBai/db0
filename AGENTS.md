@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Agents (Claude Code, Codex, Gemini CLI, Cursor  etc.) when working with code in this repository.
 
 ## Role and Teaching Philosophy
 

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"unsafe"
 )
 
 func main() {
@@ -14,15 +15,20 @@ func main() {
 
 	fmt.Println("Hello World! ", a, b, c, d)
 
-	beyondHello()
-	learnTypes()
-	learnControlFlow()
-	learnFunctions()
-	learnStruct()
-	learnStructMethods()
+	// beyondHello()
+	// learnTypes()
+	// learnControlFlow()
+	// learnFunctions()
+	// learnStruct()
+	// learnStructMethods()
 
-	fmt.Println("++++ examples +++++")
-	RunExamples()
+	// learnArray()
+	// learnMyString()
+
+	learnSlice()
+
+	// fmt.Println("++++ examples +++++")
+	// RunExamples()
 }
 
 func beyondHello() {
@@ -173,4 +179,47 @@ func learnStructMethods() {
 	c.foo2()
 	fmt.Println("c ", c)
 	c.foo3()
+}
+
+func learnArray() {
+	var a [2]byte
+	var b [2][4]byte
+
+	b = [2][4]byte{
+		{1, 2, 3, 4},
+		{5, 6, 7, 8},
+	}
+	fmt.Println("a ", a)
+	fmt.Println("b ", b)
+
+	b[1][3] = 123
+	fmt.Println("b[1][3] ", b[1][3])
+}
+
+type MyString struct {
+	ptr *byte
+	len int
+}
+
+func (s MyString) String() string {
+	return string(unsafe.Slice(s.ptr, s.len))
+}
+
+func learnMyString() {
+	data := []byte("hello")
+	s := MyString{ptr: &data[0], len: 5}
+	fmt.Println("s ", s)
+
+	go_str := "asdf"
+	len_go_str := len(go_str)
+	fmt.Println("len_go_str ", len_go_str)
+	go_str = "hi " + go_str
+	fmt.Println("go_str ", go_str)
+}
+
+func learnSlice() {
+	nums := []int{1, 2, 3}
+	nums2 := make([]int, 5)     // 5 zeros, len=5, cap=5
+	nums3 := make([]int, 0, 10) // len=0, reserved for 10
+	fmt.Println("nums ", nums, "nums2 ", nums2, "nums3 ", nums3)
 }
